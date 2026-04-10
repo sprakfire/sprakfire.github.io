@@ -13,9 +13,13 @@ title = "阿湯的人生實驗室"
   ShowReadingTime = true
   ShowPostNavLinks = true
 
+  [[params.socialIcons]]
+    name = "Threads"
+    url = "https://www.threads.com/@thomaslifenz?hl=en"
+
 [params.homeInfoParams]
   Title = "阿湯的人生實驗室"
-  Content = "📍 紐西蘭 &nbsp;|&nbsp; 🔥 Fire Engineer &nbsp;|&nbsp; 🎤 Host of 消防對不隊\n\n深度閱讀，認真思考，記錄人生實驗的過程。"
+  Content = "📍 紐西蘭　🔥 Fire Engineer　🎤 Host of 消防對不隊\n\n深度閱讀，認真思考，記錄人生實驗的過程。"
 
 [[menus.main]]
   name = "文章"
