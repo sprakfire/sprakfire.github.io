@@ -2,6 +2,11 @@ baseURL = "https://sprakfire.github.io/"
 languageCode = "zh-hant"
 title = "阿湯的人生實驗室"
 
+# Google Analytics 4
+[services]
+  [services.googleAnalytics]
+    ID = "G-79V28M81TE"
+
 [module]
   [[module.imports]]
     path = "github.com/adityatelange/hugo-PaperMod"
@@ -10,6 +15,7 @@ title = "阿湯的人生實驗室"
   author = "阿湯"
   description = "深度閱讀，認真思考，記錄人生實驗的過程。"
   defaultTheme = "light"
+  env = "production"  # 讓 PaperMod 在正式環境啟用 GA
   ShowReadingTime = true
   ShowPostNavLinks = true
 
