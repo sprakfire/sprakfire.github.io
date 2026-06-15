@@ -1,25 +1,11 @@
-{{- /* 首頁 Threads 風格 profile 卡片 */}}
-{{- $p := site.Params.profile }}
-<div class="profile-card">
-  <div class="profile-head">
-    <div class="profile-id">
-      <div class="profile-name">{{ $p.name | default site.Params.author }}</div>
-      {{- with $p.handle }}<div class="profile-handle">@{{ . }}</div>{{ end }}
+{{- /* 首頁簡介：簡介文字 + 社群圖示（無大標題、無 profile 卡片） */}}
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <div class="entry-content">
+        {{ .Content | markdownify }}
     </div>
-    {{- with $p.avatar }}
-    <img class="profile-avatar" src="{{ . | relURL }}" alt="{{ $p.name | default site.Params.author }}" loading="lazy">
-    {{- else }}
-    <div class="profile-avatar profile-avatar-fallback">{{ substr ($p.name | default site.Params.author) 0 1 }}</div>
-    {{- end }}
-  </div>
-
-  {{- with site.Params.homeInfoParams.Content }}
-  <div class="profile-bio">{{ . | markdownify }}</div>
-  {{- end }}
-
-  <div class="profile-actions">
-    {{- with $p.threads }}
-    <a class="profile-follow" href="{{ . }}" target="_blank" rel="noopener noreferrer">在 Threads 追蹤</a>
-    {{- end }}
-  </div>
-</div>
+    <footer class="entry-footer">
+        {{- partial "social_icons.html" (dict "align" .align) -}}
+    </footer>
+</article>
+{{- end }}
