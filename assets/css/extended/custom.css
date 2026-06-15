@@ -132,10 +132,10 @@ body.list {
     text-decoration-color: var(--ref-link);
 }
 
-/* 內文標題 */
+/* 內文子標題：用圓潤的 Noto Sans TC 粗體（對齊參考站；大標題才用宋體） */
 .ref-content h2,
 .ref-content h3 {
-    font-family: "Noto Serif TC", "Noto Sans TC", serif;
+    font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 700;
     color: var(--ref-ink);
     line-height: 1.4;
