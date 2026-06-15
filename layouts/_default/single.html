@@ -21,7 +21,7 @@
     {{- $cats := .GetTerms "categories" }}
     {{- with $cats }}<span class="ref-category">{{ (index . 0).LinkTitle }}</span>{{ end }}
     {{- if not (.Date.IsZero) }}<time class="ref-date">{{ .Date.Format "2006 年 1 月 2 日" }}</time>{{ end }}
-    {{- with site.Params.goatcounter }}<span class="ref-views" data-gc-path="{{ $.RelPermalink }}" style="display:none">👁 <span class="gc-num"></span> 次瀏覽</span>{{ end }}
+    {{- with site.Params.goatcounter }}<span class="ref-views" data-gc-path="{{ $.RelPermalink }}">👁 <span class="gc-num">0</span> 次瀏覽</span>{{ end }}
   </div>
   {{- end }}
 
