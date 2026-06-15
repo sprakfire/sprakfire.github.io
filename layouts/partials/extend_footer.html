@@ -1,12 +1,15 @@
 {{- /* GoatCounter：追蹤 + 在頁面顯示瀏覽數（去重訪客數） */}}
 {{- with site.Params.goatcounter }}
 <script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<span id="gc-code" data-code="{{ . }}" style="display:none"></span>
 <script>
 (function () {
-  var code = {{ . | jsonify }};
+  var cfg = document.getElementById('gc-code');
+  var code = cfg ? cfg.getAttribute('data-code') : '';
   if (!code) return;
+  var base = 'https://' + code + '.goatcounter.com/counter/';
   function fetchCount(path, cb) {
-    fetch('https://' + code + '.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+    fetch(base + encodeURIComponent(path) + '.json')
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) { if (d && d.count != null) cb(d.count); })
       .catch(function () {});
