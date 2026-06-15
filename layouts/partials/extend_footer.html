@@ -9,9 +9,13 @@
   if (!code) return;
   var base = 'https://' + code + '.goatcounter.com/counter/';
   function fetchCount(path, cb) {
+    // 注意：沒有紀錄的路徑 GoatCounter 會回 404，但內容仍含 {"count":"0"}，
+    // 所以這裡不看狀態碼，一律嘗試解析 JSON，讓新文章也顯示「0」。
     fetch(base + encodeURIComponent(path) + '.json')
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { if (d && d.count != null) cb(d.count); })
+      .then(function (r) { return r.text(); })
+      .then(function (t) {
+        try { var d = JSON.parse(t); if (d && d.count != null) cb(d.count); } catch (e) {}
+      })
       .catch(function () {});
   }
   function run() {
