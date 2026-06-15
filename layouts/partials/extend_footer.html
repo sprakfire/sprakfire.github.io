@@ -1,0 +1,33 @@
+{{- /* GoatCounter：追蹤 + 在頁面顯示瀏覽數（去重訪客數） */}}
+{{- with site.Params.goatcounter }}
+<script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  var code = {{ . | jsonify }};
+  if (!code) return;
+  function fetchCount(path, cb) {
+    fetch('https://' + code + '.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { if (d && d.count != null) cb(d.count); })
+      .catch(function () {});
+  }
+  function run() {
+    document.querySelectorAll('[data-gc-path]').forEach(function (el) {
+      fetchCount(el.getAttribute('data-gc-path'), function (c) {
+        var n = el.querySelector('.gc-num');
+        if (n) n.textContent = c;
+        el.style.display = '';
+      });
+    });
+    document.querySelectorAll('[data-gc-total]').forEach(function (el) {
+      fetchCount('TOTAL', function (c) {
+        var n = el.querySelector('.gc-num');
+        if (n) n.textContent = c;
+      });
+    });
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+})();
+</script>
+{{- end }}

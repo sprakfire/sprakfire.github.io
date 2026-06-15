@@ -21,7 +21,7 @@
     {{- $cats := .GetTerms "categories" }}
     {{- with $cats }}<span class="ref-category">{{ (index . 0).LinkTitle }}</span>{{ end }}
     {{- if not (.Date.IsZero) }}<time class="ref-date">{{ .Date.Format "2006 年 1 月 2 日" }}</time>{{ end }}
-    <span class="ref-views" id="busuanzi_container_page_pv" style="display:none">👁 累計瀏覽 <span id="busuanzi_value_page_pv"></span> 次</span>
+    {{- with site.Params.goatcounter }}<span class="ref-views" data-gc-path="{{ $.RelPermalink }}" style="display:none">👁 <span class="gc-num"></span> 次瀏覽</span>{{ end }}
   </div>
   {{- end }}
 
@@ -64,8 +64,5 @@
   {{- end }}
 
 </article>
-
-{{- /* 不蒜子瀏覽人次統計（jsDelivr 鏡像） */}}
-<script async src="//cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
 
 {{- end }}

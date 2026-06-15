@@ -18,6 +18,10 @@ title = "阿湯的人生實驗室"
   env = "production"  # 讓 PaperMod 在正式環境啟用 GA
   ShowReadingTime = true
   ShowPostNavLinks = true
+  # GoatCounter 代碼：到 goatcounter.com 免費註冊後，填你的代碼。
+  # 例如註冊網址是 https://sprakfire.goatcounter.com 就填 "sprakfire"。
+  # 留空則不顯示瀏覽數。
+  goatcounter = "sprakfire"
 
   [[params.socialIcons]]
     name = "Threads"
