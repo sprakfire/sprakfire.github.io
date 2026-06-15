@@ -1,0 +1,71 @@
+{{- define "main" }}
+
+<article class="post-single ref-article">
+
+  {{- /* 封面圖：支援頁面資源或外部網址 */}}
+  {{- with .Params.cover }}
+    {{- $img := .image }}
+    {{- $url := $img }}
+    {{- with $.Resources.GetMatch ($img | default "") }}{{ $url = .RelPermalink }}{{ end }}
+    {{- if $url }}
+    <figure class="ref-cover">
+      <img src="{{ $url }}" alt="{{ .alt | default $.Title }}" loading="lazy" />
+      {{- with .caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+    </figure>
+    {{- end }}
+  {{- end }}
+
+  {{- /* 分類 + 日期（僅文章顯示） */}}
+  {{- if eq .Section "posts" }}
+  <div class="ref-meta">
+    {{- $cats := .GetTerms "categories" }}
+    {{- with $cats }}<span class="ref-category">{{ (index . 0).LinkTitle }}</span>{{ end }}
+    {{- if not (.Date.IsZero) }}<time class="ref-date">{{ .Date.Format "2006 年 1 月 2 日" }}</time>{{ end }}
+    <span class="ref-views" id="busuanzi_container_page_pv" style="display:none">👁 累計瀏覽 <span id="busuanzi_value_page_pv"></span> 次</span>
+  </div>
+  {{- end }}
+
+  {{- /* 標題 */}}
+  <h1 class="ref-title">{{ .Title }}</h1>
+
+  {{- /* 作者署名（僅文章顯示） */}}
+  {{- if eq .Section "posts" }}
+  <div class="ref-author">✍️ 作者：{{ .Params.author | default site.Params.author }}</div>
+  {{- end }}
+
+  {{- /* 內文 */}}
+  <div class="ref-content post-content">
+    {{ .Content }}
+  </div>
+
+  {{- /* 上一篇 / 下一篇導覽（依日期判斷方向，避免方向相反） */}}
+  {{- if site.Params.ShowPostNavLinks }}
+    {{- $cur := . }}
+    {{- $older := "" }}
+    {{- $newer := "" }}
+    {{- with .PrevInSection }}{{ if lt .Date $cur.Date }}{{ $older = . }}{{ else }}{{ $newer = . }}{{ end }}{{ end }}
+    {{- with .NextInSection }}{{ if lt .Date $cur.Date }}{{ $older = . }}{{ else }}{{ $newer = . }}{{ end }}{{ end }}
+    {{- if or $older $newer }}
+    <nav class="ref-postnav">
+      {{- with $older }}
+      <a class="ref-navlink ref-prev" href="{{ .Permalink }}">
+        <span class="ref-navdir">← 上一篇</span>
+        <span class="ref-navtitle">{{ .Title }}</span>
+      </a>
+      {{- end }}
+      {{- with $newer }}
+      <a class="ref-navlink ref-next" href="{{ .Permalink }}">
+        <span class="ref-navdir">下一篇 →</span>
+        <span class="ref-navtitle">{{ .Title }}</span>
+      </a>
+      {{- end }}
+    </nav>
+    {{- end }}
+  {{- end }}
+
+</article>
+
+{{- /* 不蒜子瀏覽人次統計（jsDelivr 鏡像） */}}
+<script async src="//cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+{{- end }}

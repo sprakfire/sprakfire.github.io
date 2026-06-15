@@ -1,0 +1,22 @@
+{{- define "main" }}
+
+{{- if .Content }}
+<div class="post-content">{{ .Content }}</div>
+{{- end }}
+
+{{- partial "home_info.html" . }}
+
+{{- partial "counter_bar.html" . }}
+
+{{- partial "post_filter.html" . }}
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- if not $pages }}{{ $pages = where site.RegularPages "Section" "posts" }}{{ end }}
+
+<div class="articles-grid">
+  {{- range $pages }}
+    {{- partial "article_card.html" . }}
+  {{- end }}
+</div>
+
+{{- end }}

@@ -1,0 +1,21 @@
+{{- /* 首頁統計列：累計瀏覽（不蒜子 site_pv）／篇數／最新更新 */}}
+{{- $posts := where site.RegularPages "Section" "posts" }}
+{{- $count := len $posts }}
+<div class="counter-bar">
+  <div class="counter-item">
+    <span class="counter-number" id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">—</span></span>
+    <span class="counter-label">累計瀏覽</span>
+  </div>
+  <div class="counter-item">
+    <span class="counter-number">{{ $count }}</span>
+    <span class="counter-label">篇文章</span>
+  </div>
+  {{- if $posts }}
+  {{- $latest := (index (sort $posts "Date" "desc") 0).Date }}
+  <div class="counter-item">
+    <span class="counter-number">{{ $latest.Format "2006/1/2" }}</span>
+    <span class="counter-label">最新更新</span>
+  </div>
+  {{- end }}
+</div>
+<script async src="//cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>

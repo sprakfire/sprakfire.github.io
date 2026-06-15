@@ -1,0 +1,30 @@
+{{- /* 文章卡片：復刻參考站 article-card */}}
+{{- $cats := .GetTerms "categories" }}
+{{- $coverUrl := "" }}
+{{- with .Params.cover }}
+  {{- $coverUrl = .image }}
+  {{- with $.Resources.GetMatch (.image | default "") }}{{ $coverUrl = .RelPermalink }}{{ end }}
+{{- end }}
+{{- $catNames := slice }}
+{{- range $cats }}{{ $catNames = $catNames | append .LinkTitle }}{{ end }}
+{{- $kw := "" }}{{ with .Params.keywords }}{{ $kw = delimit . " " }}{{ end }}
+{{- $tagstr := "" }}{{ with .Params.tags }}{{ $tagstr = delimit . " " }}{{ end }}
+{{- $search := lower (printf "%s %s %s %s %s" .Title (.Summary | plainify) (delimit $catNames " ") $kw $tagstr) }}
+<a class="article-card" data-categories="{{ delimit $catNames "|" }}" data-search="{{ $search }}" href="{{ .Permalink }}">
+  {{- if $coverUrl }}
+  <div class="card-image-wrap">
+    <img src="{{ $coverUrl }}" alt="{{ .Title }}" loading="lazy">
+    {{- with $cats }}<span class="card-category">{{ (index . 0).LinkTitle }}</span>{{ end }}
+  </div>
+  {{- end }}
+  <div class="card-body">
+    <div class="card-meta">
+      {{- if and (not $coverUrl) $cats }}<span class="card-category-inline">{{ (index $cats 0).LinkTitle }}</span>{{ end }}
+      <span class="card-date">{{ .Date.Format "2006/1/2" }}</span>
+      {{- if site.Params.ShowReadingTime }}<span class="card-views">{{ .ReadingTime }} 分鐘</span>{{ end }}
+    </div>
+    <h3 class="card-title">{{ .Title }}</h3>
+    <div class="card-excerpt">{{ .Summary | plainify | truncate 90 }}</div>
+    <div class="card-read-more">閱讀全文 →</div>
+  </div>
+</a>

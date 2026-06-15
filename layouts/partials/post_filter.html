@@ -1,0 +1,50 @@
+{{- /* 分類篩選列 + 搜尋（前端即時過濾 .article-card） */}}
+<div class="post-filter">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="postSearch" placeholder="搜尋文章標題、內容、分類…" autocomplete="off">
+  </div>
+  {{- with site.Taxonomies.categories }}
+  <div class="filter-tabs" id="filterTabs">
+    <button type="button" class="filter-tab active" data-cat="all">全部</button>
+    {{- range $term, $tax := . }}
+      {{- with site.GetPage (printf "categories/%s" $term) }}
+      <button type="button" class="filter-tab" data-cat="{{ .LinkTitle }}">{{ .LinkTitle }}</button>
+      {{- end }}
+    {{- end }}
+  </div>
+  {{- end }}
+</div>
+<p class="filter-empty" id="filterEmpty" style="display:none">這個分類還沒有符合的文章</p>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var search = document.getElementById('postSearch');
+  var tabs = document.getElementById('filterTabs');
+  var empty = document.getElementById('filterEmpty');
+  var cards = [].slice.call(document.querySelectorAll('.article-card'));
+  var cat = 'all';
+  function apply() {
+    var q = (search && search.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (c) {
+      var cats = (c.getAttribute('data-categories') || '').split('|');
+      var matchCat = cat === 'all' || cats.indexOf(cat) > -1;
+      var matchQ = !q || (c.getAttribute('data-search') || '').indexOf(q) > -1;
+      var show = matchCat && matchQ;
+      c.style.display = show ? '' : 'none';
+      if (show) shown++;
+    });
+    if (empty) empty.style.display = shown ? 'none' : 'block';
+  }
+  if (search) search.addEventListener('input', apply);
+  if (tabs) tabs.addEventListener('click', function (e) {
+    var b = e.target.closest('.filter-tab');
+    if (!b) return;
+    [].forEach.call(tabs.querySelectorAll('.filter-tab'), function (x) { x.classList.remove('active'); });
+    b.classList.add('active');
+    cat = b.getAttribute('data-cat');
+    apply();
+  });
+});
+</script>

@@ -2,6 +2,8 @@
 title = '第一次用Claude AI的實際心得'
 date = '2026-04-10T00:00:00+12:00'
 draft = false
+author = '阿湯'
+categories = ['AI 應用']
 +++
 
 ## 前言

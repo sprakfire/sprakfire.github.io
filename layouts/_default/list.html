@@ -1,0 +1,17 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1 class="list-title">{{ .Title }}</h1>
+  {{- with .Description }}<div class="list-desc">{{ . | markdownify }}</div>{{ end }}
+  {{- if .Content }}<div class="post-content">{{ .Content }}</div>{{ end }}
+</header>
+
+{{- if eq .Kind "section" }}{{ partial "post_filter.html" . }}{{ end }}
+
+<div class="articles-grid">
+  {{- range .Pages }}
+    {{- partial "article_card.html" . }}
+  {{- end }}
+</div>
+
+{{- end }}
