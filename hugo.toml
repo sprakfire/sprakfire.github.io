@@ -27,6 +27,12 @@ title = "阿湯的人生實驗室"
     name = "Threads"
     url = "https://www.threads.com/@thomaslifenz?hl=en"
 
+[params.profile]
+  name = "Thomas Weng"
+  handle = "thomaslifenz"
+  avatar = "img/avatar.jpg"   # 放在 static/img/ 底下
+  threads = "https://www.threads.com/@thomaslifenz"
+
 [params.homeInfoParams]
   Title = "阿湯的人生實驗室"
   Content = "📍 台灣 ⏭️ 紐西蘭\n\n🔥 消防員 ➡️ 防火工程師\n\n🎤 Host of 消防對不隊"
