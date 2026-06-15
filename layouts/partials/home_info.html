@@ -1,0 +1,11 @@
+{{- /* 首頁簡介：移除大標題，只保留簡介文字與社群圖示 */}}
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <div class="entry-content">
+        {{ .Content | markdownify }}
+    </div>
+    <footer class="entry-footer">
+        {{- partial "social_icons.html" (dict "align" .align) -}}
+    </footer>
+</article>
+{{- end }}

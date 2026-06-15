@@ -29,7 +29,7 @@ title = "阿湯的人生實驗室"
 
 [params.homeInfoParams]
   Title = "阿湯的人生實驗室"
-  Content = "📍 紐西蘭\n\n🔥 Fire Engineer\n\n🎤 Host of 消防對不隊"
+  Content = "📍 台灣 ⏭️ 紐西蘭\n\n🔥 消防員 ➡️ 防火工程師\n\n🎤 Host of 消防對不隊"
 
 [[menus.main]]
   name = "文章"
