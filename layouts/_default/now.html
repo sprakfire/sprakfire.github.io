@@ -1,0 +1,116 @@
+{{- define "main" }}
+
+<article class="now-page">
+
+  {{- /* 頂部：回首頁連結 */}}
+  <a class="now-home" href="{{ "/" | relURL }}">← 阿湯的人生實驗室</a>
+
+  <header class="now-header">
+    <h1 class="now-title">現在進行式</h1>
+    <p class="now-intro">比起「我是誰」或「關於我」，記錄「我現在正在做什麼」或許能夠更讓人知道我是誰?</p>
+  </header>
+
+  {{- /* 區塊一：工作與專業 */}}
+  <section class="now-section">
+    <h2 class="now-section-title">工作與專業</h2>
+
+    <div class="now-card">
+      <h3 class="now-card-title">CPEng 申請備戰</h3>
+      <p class="now-card-desc">朝紐西蘭特許專業工程師（CPEng）認證邁進，目前在兩條主線上推進。</p>
+
+      <div class="now-progress">
+        <div class="now-progress-head">
+          <span class="now-progress-label">文件整理</span>
+          <span class="now-progress-pct">20%</span>
+        </div>
+        <div class="now-progress-track"><div class="now-progress-fill" style="width:20%"></div></div>
+      </div>
+
+      <div class="now-progress">
+        <div class="now-progress-head">
+          <span class="now-progress-label">Referee 確認</span>
+          <span class="now-progress-pct">20%</span>
+        </div>
+        <div class="now-progress-track"><div class="now-progress-fill" style="width:20%"></div></div>
+      </div>
+    </div>
+
+    <div class="now-card">
+      <h3 class="now-card-title">火災工程專案</h3>
+      <p class="now-card-desc">進行火災模擬與人員疏散分析，依紐西蘭規範驗證設計。</p>
+      <div class="now-tags">
+        <span class="now-tag">FDS / PyroSim</span>
+        <span class="now-tag">Pathfinder</span>
+        <span class="now-tag">C/VM2</span>
+      </div>
+    </div>
+  </section>
+
+  {{- /* 區塊二：內容創作 */}}
+  <section class="now-section">
+    <h2 class="now-section-title">內容創作</h2>
+
+    <div class="now-card">
+      <h3 class="now-card-title">Podcast「消防對不隊」</h3>
+      <p class="now-card-desc">在 SoundOn 平台上架，目前已累積 16+ 集。目前主要在聊消防員離職、留學等相關內容。</p>
+      <div class="now-tags">
+        <span class="now-tag">SoundOn</span>
+        <span class="now-tag">16+ 集</span>
+      </div>
+    </div>
+
+    <div class="now-card">
+      <h3 class="now-card-title">這個網站 — 阿湯的人生實驗室</h3>
+      <p class="now-card-desc">深度閱讀，認真思考，記錄人生實驗的過程。把讀過、想過、試過的東西寫下來。</p>
+    </div>
+  </section>
+
+  {{- /* 區塊三：正在讀的書 */}}
+  <section class="now-section">
+    <h2 class="now-section-title">正在讀的書</h2>
+
+    <div class="now-book">
+      <img class="now-book-cover" src="{{ "images/wealth-ladder.jpg" | relURL }}" alt="Wealth Ladder 封面" loading="lazy" />
+      <div class="now-book-body">
+        <div>
+          <h3 class="now-book-title">Wealth Ladder</h3>
+          <p class="now-book-author">Nick Maggiulli</p>
+        </div>
+        <span class="now-book-status">閱讀中</span>
+      </div>
+    </div>
+  </section>
+
+  {{- /* 區塊四：生活 */}}
+  <section class="now-section">
+    <h2 class="now-section-title">生活</h2>
+
+    <div class="now-card">
+      <div class="now-tags">
+        <span class="now-tag">Push / Pull / Legs 訓練</span>
+        <span class="now-tag">通勤騎車</span>
+        <span class="now-tag">假日打高爾夫</span>
+      </div>
+      <p class="now-card-meta">📍 基督城，紐西蘭</p>
+    </div>
+
+    <div class="now-card">
+      <h3 class="now-card-title">日文檢定 JLPT N4</h3>
+      <p class="now-card-desc">每天持續練習文法與單字，目標通過 N4，真正開始「用日文生活」。</p>
+      <div class="now-progress">
+        <div class="now-progress-head">
+          <span class="now-progress-label">備考進度</span>
+          <span class="now-progress-pct">20%</span>
+        </div>
+        <div class="now-progress-track"><div class="now-progress-fill" style="width:20%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="now-footer">
+    靈感來自 <a href="https://sive.rs/nowff" target="_blank" rel="noopener">Derek Sivers</a> 的 /now 運動，每個月更新一次。
+  </footer>
+
+</article>
+
+{{- end }}

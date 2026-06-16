@@ -419,3 +419,207 @@ body.list {
     .articles-grid { grid-template-columns: 1fr; }
 }
 
+/* ============================================================
+   關於頁（/now 風格）淺色卡片配色（變體 C）
+   暖紙底、白卡 #FFFFFF、邊框 #EAE4DC、accent 橘紅 #C8602A
+   小標橘色短底線、進度條淡橘底 #F3E7DD
+   ============================================================ */
+.now-page {
+    --now-card: #FFFFFF;
+    --now-line: #EAE4DC;
+    --now-head: #2C2825;
+    --now-text: #6B6460;
+    --now-muted: #8A817C;
+    --now-accent: #C8602A;
+
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 8px;
+}
+
+/* 頂部回首頁連結 */
+.now-home {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--now-accent);
+    text-decoration: none;
+    margin-bottom: 28px;
+    transition: opacity .15s ease;
+}
+.now-home:hover { opacity: 0.75; }
+
+/* 頁面標題 */
+.now-header { margin-bottom: 8px; }
+.now-title {
+    font-family: "Noto Serif TC", "Noto Sans TC", serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.4;
+    color: var(--now-head);
+    margin: 0 0 12px;
+}
+.now-intro {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--now-text);
+    margin: 0;
+}
+
+/* 區塊 */
+.now-section { margin-top: 40px; }
+.now-section-title {
+    display: inline-block;
+    font-family: "Noto Sans TC", -apple-system, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: var(--now-accent);
+    text-transform: uppercase;
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--now-accent);
+}
+
+/* 卡片 */
+.now-card {
+    background: var(--now-card);
+    border: 1px solid var(--now-line);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+}
+.now-card-title {
+    font-family: "Noto Sans TC", -apple-system, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--now-head);
+    margin: 0 0 8px;
+}
+.now-card-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--now-text);
+    margin: 0 0 16px;
+}
+.now-card-desc:last-child { margin-bottom: 0; }
+.now-card-meta {
+    font-size: 14px;
+    color: var(--now-muted);
+    margin: 14px 0 0;
+}
+
+/* 進度條 */
+.now-progress { margin-top: 14px; }
+.now-progress-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 7px;
+}
+.now-progress-label {
+    font-size: 14px;
+    color: var(--now-text);
+}
+.now-progress-pct {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--now-accent);
+}
+.now-progress-track {
+    height: 8px;
+    background: #F3E7DD;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.now-progress-fill {
+    height: 100%;
+    background: var(--now-accent);
+    border-radius: 999px;
+}
+
+/* 小 tag */
+.now-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.now-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--now-line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--now-text);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* 書脊卡片 */
+.now-book {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--now-card);
+    border: 1px solid var(--now-line);
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+.now-book-cover {
+    width: 58px;
+    height: 87px;
+    flex: 0 0 58px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--now-line);
+    display: block;
+}
+.now-book-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 12px;
+}
+.now-book-title {
+    font-family: "Noto Serif TC", "Noto Sans TC", serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--now-head);
+    margin: 0 0 3px;
+}
+.now-book-author {
+    font-size: 13px;
+    color: var(--now-text);
+    margin: 0;
+}
+.now-book-status {
+    flex: 0 0 auto;
+    padding: 3px 12px;
+    border-radius: 999px;
+    background: var(--now-accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* 底部 /now 說明 */
+.now-footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--now-line);
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--now-muted);
+}
+.now-footer a {
+    color: var(--now-accent);
+    text-decoration: none;
+}
+.now-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+    .now-title { font-size: 26px; }
+    .now-book-body { flex-direction: column; align-items: flex-start; }
+}
+
