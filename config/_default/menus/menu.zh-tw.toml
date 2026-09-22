@@ -1,0 +1,34 @@
+[[main]]
+  name = "文章"
+  url = ""
+  weight = 1
+[[main]]
+  name = "Podcast"
+  url = "podcast/"
+  weight = 2
+[[main]]
+  name = "合作邀約"
+  url = "work-with-me/"
+  weight = 3
+[[main]]
+  name = "關於我"
+  url = "about/"
+  weight = 4
+[[main]]
+  name = "文章列表"
+  url = "archives/"
+  weight = 5
+
+# 社群連結：把 # 換成你的實際網址
+[[social]]
+  name = "linkedin"
+  weight = 1
+  url = "https://www.linkedin.com/in/#"
+[[social]]
+  name = "youtube"
+  weight = 2
+  url = "https://www.youtube.com/#"
+[[social]]
+  name = "rss"
+  weight = 3
+  url = "index.xml"

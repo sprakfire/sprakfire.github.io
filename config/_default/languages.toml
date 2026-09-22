@@ -1,0 +1,13 @@
+[zh-tw]
+  title = "火線觀點"
+  label = "繁體中文"
+  languageCode = "zh-TW"
+  weight = 1
+
+[en]
+  title = "Fireline Perspective"
+  label = "English"
+  languageCode = "en-NZ"
+  weight = 2
+  [en.params]
+    introDescription = "Fire protection engineer in Christchurch, New Zealand. Former firefighter. I write and talk about performance-based fire design, egress and evacuation modelling."

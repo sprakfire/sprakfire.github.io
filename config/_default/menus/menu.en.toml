@@ -1,0 +1,21 @@
+[[main]]
+  name = "Home"
+  url = ""
+  weight = 1
+[[main]]
+  name = "Work with me"
+  url = "work-with-me/"
+  weight = 2
+[[main]]
+  name = "About"
+  url = "about/"
+  weight = 3
+
+[[social]]
+  name = "linkedin"
+  weight = 1
+  url = "https://www.linkedin.com/in/#"
+[[social]]
+  name = "youtube"
+  weight = 2
+  url = "https://www.youtube.com/#"

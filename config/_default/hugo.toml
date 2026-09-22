@@ -1,0 +1,26 @@
+# 網址：GitHub Actions 部署時會自動換成你的 GitHub Pages 網址，這裡不用改。
+# 之後若綁定自訂網域（例如 https://firelineview.com/），再改成那個網址即可。
+baseURL = "https://example.com/"
+theme = "hugo-clarity"
+copyright = "火線觀點"
+enableInlineShortcodes = true
+enableRobotsTXT = true
+hasCJKLanguage = true   # 中文字數、閱讀時間才會算得準
+timeout = "60s"
+
+defaultContentLanguage = "zh-tw"
+defaultContentLanguageInSubdir = false
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]   # JSON 給站內搜尋用
+
+[pagination]
+  pagerSize = 10
+
+[privacy.youtube]
+  privacyEnhanced = true

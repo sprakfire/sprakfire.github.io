@@ -1,0 +1,16 @@
+// 中文排版微調
+body
+  line-height: 1.8
+  letter-spacing: 0.02em
+
+.post_content, .page_content
+  p, li
+    line-height: 1.9
+
+// 深色模式下紅色太暗，提亮一點
+html[data-mode="dim"]
+  --theme: #ef5a4c
+
+@media (prefers-color-scheme: dark)
+  html:not([data-mode="lit"])
+    --theme: #ef5a4c

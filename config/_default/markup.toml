@@ -1,0 +1,15 @@
+[goldmark.renderer]
+  hardWraps = false
+  unsafe = true
+[goldmark.extensions]
+  typographer = false
+  [goldmark.extensions.cjk]
+    enable = true
+    eastAsianLineBreaks = true
+[highlight]
+  codeFences = true
+  guessSyntax = true
+  lineNos = true
+  lineNumbersInTable = false
+  noClasses = false
+  tabWidth = 2

@@ -1,0 +1,41 @@
+# ── 側欄自我介紹 ──
+introDescription = "紐西蘭基督城的消防工程師，前台灣消防員。聊性能式防火設計、避難逃生與建築安全，也主持 Podcast《消防對不隊》。"
+introURL = "about/"
+
+[author]
+  name = "Thomas"
+  # 放一張大頭照到 static/images/avatar.jpg 後取消下一行註解
+  # photo = "images/avatar.jpg"
+
+description = "火線觀點：消防工程師 Thomas 的網站。性能式防火設計、避難逃生分析、建築安全與 Podcast《消防對不隊》。"
+keywords = ["消防工程", "防火設計", "避難逃生", "建築安全", "fire engineering", "New Zealand", "C/VM2", "Pathfinder", "FDS"]
+
+enableSearch = true
+mainSections = ["post"]
+blogDir = "post"
+
+# 圖示與圖片
+imagesDir = "images/"
+iconsDir = "icons/"
+fontsDir = "fonts/"
+fallBackOgImage = "images/og-default.png"
+# 不設 logo 時，導覽列直接顯示網站名稱文字
+# logo = "logos/logo.png"
+centerLogo = false
+
+mobileNavigation = "left"
+enforceLightMode = false
+languageMenuName = "🌐"
+
+numberOfTagsShown = 14
+usePageBundles = false
+codeMaxLines = 10
+codeLineNumbers = false
+enableMathNotation = false
+figurePositionShow = false
+
+since = 2026
+
+# 分析工具（要用再填）
+ga_analytics = ""
+google_tag_manager_id = ""
